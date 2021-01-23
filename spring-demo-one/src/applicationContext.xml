@@ -19,4 +19,13 @@
 	</bean>
 
 
+	<bean id="myCricketCoach" class="com.kevinpham.springdemo.CricketCoach">
+
+		<!-- 4. Set up setter injection -->
+		<!-- Spring will call the 'set<name>' method (in this case: setFortuneService() method) and pass in the bean id: myFortuneService as a parameter -->
+		<property name="fortuneService" ref="myFortuneService" />
+
+	</bean>
+
+
 </beans>
