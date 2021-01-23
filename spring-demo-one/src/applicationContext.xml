@@ -10,7 +10,7 @@
 	<!-- 2. Define the dependency -->
 	<bean id="myFortune" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
 
-	<bean id="myCoach" class="com.kevinpham.springdemo.BaseballCoach">
+	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach">
 
 		<!-- 3. Set up the constructor injection -->
 		<!-- Spring will create Coach object, call the constructor and pass in the myFortune as reference -->
