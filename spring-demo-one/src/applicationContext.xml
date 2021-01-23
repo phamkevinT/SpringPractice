@@ -4,17 +4,19 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Define your beans here -->
-	
-	<bean id="myCoach" class="com.kevinpham.springdemo.SwimCoach"></bean>
+	<!-- 1. Define your beans here -->
 
-	<!-- 
-	
-	Can change coaches by editing this configuration file
-	Replace ".XCoach" with ".TrackCoach" and run the HelloSpringApp.java
-	
-	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach"></bean>
-		
-	-->
+
+	<!-- 2. Define the dependency -->
+	<bean id="myFortune" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
+
+	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach">
+
+		<!-- 3. Set up the constructor injection -->
+		<!-- Spring will create Coach object, call the constructor and pass in the myFortune as reference -->
+		<constructor-arg ref="myFortune" />
+
+	</bean>
+
 
 </beans>
