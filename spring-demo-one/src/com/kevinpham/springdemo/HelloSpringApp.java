@@ -2,6 +2,11 @@ package com.kevinpham.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+/**
+ * Demo of the Constructor Dependency Injection
+ * @author Kevin Pham
+ *
+ */
 public class HelloSpringApp {
 
 	public static void main(String[] args) {
