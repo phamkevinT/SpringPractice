@@ -1,5 +1,6 @@
 package com.kevinpham.springdemo;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Demo of the Setter Injection
@@ -9,8 +10,21 @@ package com.kevinpham.springdemo;
 public class SetterDemoApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		// Load the spring configuration file
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		// Retrieve the bean from spring container
+		CricketCoach theCoach = context.getBean("myCricketCoach", CricketCoach.class);
+		
+		// Call methods on the bean
+		System.out.println(theCoach.getDailyWorkout());
+		
+		System.out.println(theCoach.getDailyFortune());
+		
+		// Close the context
+		context.close();
+		
 	}
 
 }
