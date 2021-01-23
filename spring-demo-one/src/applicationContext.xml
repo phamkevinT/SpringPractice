@@ -8,13 +8,22 @@
 
 
 	<!-- 2. Define the dependency -->
-	<bean id="myFortune" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
+	<bean id="myFortuneService" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
 
 	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach">
 
 		<!-- 3. Set up the constructor injection -->
 		<!-- Spring will create Coach object, call the constructor and pass in the myFortune as reference -->
-		<constructor-arg ref="myFortune" />
+		<constructor-arg ref="myFortuneService" />
+
+	</bean>
+
+
+	<bean id="myCricketCoach" class="com.kevinpham.springdemo.CricketCoach">
+
+		<!-- 4. Set up setter injection -->
+		<!-- Spring will call the 'set<name>' method (in this case: setFortuneService() method) and pass in the bean id: myFortuneService as a parameter -->
+		<property name="fortuneService" ref="myFortuneService" />
 
 	</bean>
 
