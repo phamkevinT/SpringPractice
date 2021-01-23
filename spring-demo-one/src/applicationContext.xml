@@ -4,15 +4,15 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Define your beans here -->
+	<!-- 1. Define your beans here -->
 
 
-	<!-- Define the dependency -->
+	<!-- 2. Define the dependency -->
 	<bean id="myFortune" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
 
 	<bean id="myCoach" class="com.kevinpham.springdemo.BaseballCoach">
 
-		<!-- Set up the constructor injection -->
+		<!-- 3. Set up the constructor injection -->
 		<!-- Spring will create Coach object, call the constructor and pass in the myFortune as reference -->
 		<constructor-arg ref="myFortune" />
 
