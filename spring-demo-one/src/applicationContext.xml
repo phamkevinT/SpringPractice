@@ -24,6 +24,13 @@
 		<!-- 4. Set up setter injection -->
 		<!-- Spring will call the 'set<name>' method (in this case: setFortuneService() method) and pass in the bean id: myFortuneService as a parameter -->
 		<property name="fortuneService" ref="myFortuneService" />
+		
+		
+		<!-- 5. Inject literal values -->
+		<!-- name: the field variables in the class, value: the actual value to inject -->
+		<!-- Spring will call the 'set<name>' method -->
+		<property name="emailAddress" value="kevin@pham.com"/>
+		<property name="team" value="Sunrisers Hyderbad"/>
 
 	</bean>
 
