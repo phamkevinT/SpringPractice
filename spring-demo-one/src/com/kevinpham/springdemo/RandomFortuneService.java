@@ -19,6 +19,7 @@ public class RandomFortuneService implements FortuneService {
 		// Pick a random string from the array of fortunes
 		int index = myRandom.nextInt(data.length);
 		
+		// Get the fortune located at the random index
 		String theFortune = data[index];
 		
 		return theFortune;
