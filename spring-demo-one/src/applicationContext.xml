@@ -6,7 +6,7 @@
 
 
 	<!-- 6. Load the properties file: sport.properties -->
-	<context:property-placeholder location="classpath:sport.properties"/>
+	<context:property-placeholder location="classpath:sport.properties" />
 
 	<!-- 1. Define your beans here -->
 
@@ -27,17 +27,22 @@
 		<!-- 4. Set up setter injection -->
 		<!-- Spring will call the 'set<name>' method (in this case: setFortuneService() method) and pass in the bean id: myFortuneService as a parameter -->
 		<property name="fortuneService" ref="myFortuneService" />
-		
-		
+
+
 		<!-- 5. Inject literal values -->
 		<!-- name: the field variables in the class, value: the actual value to inject, ex "kevin@pham.com" -->
 		<!-- Spring will call the 'set<name>' method -->
 		<!-- 7. Inject values from properties file-->
 		<!-- value: "${<value in properties file>}"-->
-		<property name="emailAddress" value="${foo.email}"/>
-		<property name="team" value="${foo.team}"/>
+		<property name="emailAddress" value="${foo.email}" />
+		<property name="team" value="${foo.team}" />
 
 	</bean>
 
+	<!-- Random Fortune Challenge -->
+	<bean id="myRandomFortune" class="com.kevinpham.springdemo.RandomFortuneService"></bean>
+	<bean id="mySwimCoach" class="com.kevinpham.springdemo.SwimCoach">
+		<constructor-arg ref="myRandomFortune" />
+	</bean>
 
 </beans>
