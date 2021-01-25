@@ -8,7 +8,7 @@
 	<!-- Define the dependency -->
 	<bean id="myFortuneService" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
 
-	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach" init-method="doMyStartUpStuff" destroy-method="doMyCleanUpStuff">
+	<bean id="mySwimCoach" class="com.kevinpham.springdemo.SwimCoach" init-method="doMyStartUpStuff" destroy-method="doMyCleanUpStuff">
 
 		<!-- Constructor Injection -->
 		<constructor-arg ref="myFortuneService" />

@@ -21,4 +21,14 @@ public class SwimCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 
+	// Add an initialization method
+	public void doMyStartUpStuff() {
+		System.out.println("TrackCoach: Inside method doMyStartUpStuff");
+	}
+
+	// Add a destroy method
+	public void doMyCleanUpStuff() {
+		System.out.println("TrackCoach: Inside method doMyCleanUpStuff");
+	}
+
 }
