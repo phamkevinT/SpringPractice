@@ -8,8 +8,9 @@
 	<!-- Define the dependency -->
 	<bean id="myFortuneService" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
 
-
-	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach">
+	<!-- Added 'scope="prototype"' which makes a new object for each request -->
+	<!-- By default, 'scope="singleton"' which shares the same object for each request -->
+	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach" scope="prototype">
 
 		<!-- Constructor Injection -->
 		<constructor-arg ref="myFortuneService" />
