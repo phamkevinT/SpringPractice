@@ -4,8 +4,11 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- 1. Define your beans here -->
 
+	<!-- 6. Load the properties file: sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties"/>
+
+	<!-- 1. Define your beans here -->
 
 	<!-- 2. Define the dependency -->
 	<bean id="myFortuneService" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
