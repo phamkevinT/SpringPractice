@@ -18,7 +18,7 @@ public class HelloSpringApp {
 		// Retrieve bean from spring container
 		// Parameter: "myCoach" = the bean ID in the XML configuration file
 		// Parameter: "Coach.class" = the interface named Coach
-		Coach theCoach = context.getBean("myCoach", Coach.class);
+		Coach theCoach = context.getBean("mySwimCoach", Coach.class);
 
 		// Call methods on the bean
 		System.out.println(theCoach.getDailyWorkout());
