@@ -5,6 +5,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+	<!-- Add entry to enable component scanning -->
+	<context:component-scan base-package="com.kevinpham" />
 
+	
 
 </beans>
