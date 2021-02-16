@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
+//	// Field Injection
+//	@Autowired
 	private FortuneService fortuneService;
 	
 	// Set up default constructor
