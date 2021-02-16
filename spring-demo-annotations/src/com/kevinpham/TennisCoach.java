@@ -10,7 +10,7 @@ public class TennisCoach implements Coach {
 	// Field Injection
 	// Qualifier specifies which bean to use
 	@Autowired
-	@Qualifier("happyFortuneService")
+	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 	
 	// Set up default constructor
