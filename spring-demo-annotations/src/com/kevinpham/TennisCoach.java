@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	private FortuneService fortuneService;
+	
+	// Set up default constructor
+		public TennisCoach() {
+			System.out.println(">> TennishCoach: Inside default constructor");
+		}
 
 //  Constructor Injection with Autowiring
 //	@Autowired
@@ -16,17 +21,21 @@ public class TennisCoach implements Coach {
 //		fortuneService = theFortuneService;
 //	}
 	
-	// Set up default constructor
-	public TennisCoach() {
-		System.out.println(">> TennishCoach: Inside default constructor");
-	}
 	
-	// Setter Injection with Autowiring
-	@Autowired
-	public void setFortuneService(FortuneService theFortuneService) {
-		System.out.println(">> TennishCoach: Inside setFortuneService() ");
-		fortuneService = theFortuneService;
-	}
+//	// Setter Injection with Autowiring
+//	@Autowired
+//	public void setFortuneService(FortuneService theFortuneService) {
+//		System.out.println(">> TennishCoach: Inside setFortuneService() ");
+//		fortuneService = theFortuneService;
+//	}
+	
+	
+//	// Method Injection with Autowiring
+//	@Autowired
+//	public void doSomething(FortuneService theFortuneService) {
+//		System.out.println(">> TennishCoach: Inside doSomething() ");
+//		fortuneService = theFortuneService;
+//	}
 	
 
 	@Override
