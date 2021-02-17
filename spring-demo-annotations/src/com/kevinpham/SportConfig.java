@@ -3,10 +3,13 @@ package com.kevinpham;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 //@ComponentScan("com.kevinpham")
+@PropertySource("classpath:sport.properties")
 public class SportConfig {
+	
 	
 	// Define bean for our sad fortune service
 	@Bean
@@ -19,5 +22,7 @@ public class SportConfig {
 	public Coach swimCoach() {
 		return new SwimCoach(sadFortuneService());
 	}
+	
+	
 	
 }
