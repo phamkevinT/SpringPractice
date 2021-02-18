@@ -16,12 +16,24 @@ href="${pageContext.request.contextPath}/resources/css/my-test.css">
 
 <body>
 
-	<img src="${pageContext.request.contextPath}/resources/images/spring-logo.png" alt = "spring-logo-image" />
-	
+	<img
+		src="${pageContext.request.contextPath}/resources/images/spring-logo.png"
+		alt="spring-logo-image" />
+
 
 	<h2>Spring MVC Demo - Home Page</h2>
 	<hr>
-	<a href="showForm">Hello World Form</a>
+	
+	<br>
+	<br>
+
+	<a href="hello/showForm">Hello World Form</a>
+
+	<br>
+	<br>
+
+	<a href="student/showForm">Student Form</a>
+
 
 </body>
 

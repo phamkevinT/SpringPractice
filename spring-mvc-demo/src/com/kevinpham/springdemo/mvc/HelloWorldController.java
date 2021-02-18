@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/hello") // Parent 'directory' -> /hello
 public class HelloWorldController {
 
 	// Need a controller method to show the initial HTML form
-	@RequestMapping("/showForm")
+	@RequestMapping("/showForm") // Child 'directory' -> /hello/showForm
 	public String showForm() {
 		return "helloworld-form";
 	}
