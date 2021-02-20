@@ -27,8 +27,6 @@ public class CustomerController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
-	
-	
 
 	@RequestMapping("/showForm")
 	public String showForm(Model theModel) {
