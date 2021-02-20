@@ -27,4 +27,10 @@
 	<!-- Accessing countries.properties file located under WEB-INF/ -->
 	<util:properties id="countryOptions" location="classpath:../countries.properties" />
 
+	<!-- Custom Message Resource File -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
+		<property name="basenames" value="resources/messages" />
+	</bean>
+	
+	
 </beans>
