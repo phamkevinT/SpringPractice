@@ -1,10 +1,12 @@
 package com.kevinpham.hibernate.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,7 +30,13 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 	
-
+	
+	// Add new field for instructor to link  with InstructorDetail
+	// Can Add/Remove cascade type based on need. At the moment missing .REMOVE used to remove all associated tables
+	@OneToOne(mappedBy="instructorDetail", cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	private Instructor intructor;
+	
+	
 	// Create constructors
 	public InstructorDetail() {
 		
@@ -63,6 +71,14 @@ public class InstructorDetail {
 
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
+	}
+	
+	public Instructor getIntructor() {
+		return intructor;
+	}
+
+	public void setIntructor(Instructor intructor) {
+		this.intructor = intructor;
 	}
 	
 
