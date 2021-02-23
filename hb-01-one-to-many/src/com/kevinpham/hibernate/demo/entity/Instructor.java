@@ -1,5 +1,8 @@
 package com.kevinpham.hibernate.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,42 +10,44 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="instructor")
+@Table(name = "instructor")
 public class Instructor {
 
-	
 	// Annotate class as entity and map to db table
-	
-	
+
 	// Define fields
 	// Annotate fields with db column names
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	private String email;
-	
-	
+
 	// ** Set up mapping to InstructorDetail entity
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="instructor_detail_id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "instructor_detail_id")
 	private InstructorDetail instructorDetail;
-	
+
+	@OneToMany(mappedBy = "instructor", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH }) // 'Instructor' refers to the 'instructor' property in 'Course.class"
+	private List<Course> courses;
+
 	// Create constructor
-	public Instructor () {
-		
+	public Instructor() {
+
 	}
 
 	public Instructor(String firstName, String lastName, String email) {
@@ -51,7 +56,6 @@ public class Instructor {
 		this.email = email;
 	}
 
-	
 	// Create Setters and Getters
 	public int getId() {
 		return id;
@@ -92,14 +96,31 @@ public class Instructor {
 	public void setInstructorDetail(InstructorDetail instructorDetail) {
 		this.instructorDetail = instructorDetail;
 	}
-	
-	
+
 	// Create toString()
 	@Override
 	public String toString() {
 		return "Instructor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", instructorDetail=" + instructorDetail + "]";
 	}
-	
-		
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
+	// Convenience methods for bi-directional relationship
+
+	public void add(Course tempCourse) {
+		if (courses == null) {
+			courses = new ArrayList<>();
+		}
+
+		courses.add(tempCourse);
+
+		tempCourse.setInstructor(this);
+	}
 }
