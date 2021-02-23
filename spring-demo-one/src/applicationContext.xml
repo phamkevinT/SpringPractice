@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 6. Load the properties file: sport.properties -->
+	<context:property-placeholder location="classpath:sport.properties" />
+
+	<!-- 1. Define your beans here -->
+
+	<!-- 2. Define the dependency -->
+	<bean id="myFortuneService" class="com.kevinpham.springdemo.HappyFortuneService"></bean>
+
+	<bean id="myCoach" class="com.kevinpham.springdemo.TrackCoach">
+
+		<!-- 3. Set up the constructor injection -->
+		<!-- Spring will create Coach object, call the constructor and pass in the myFortune as reference -->
+		<constructor-arg ref="myFortuneService" />
+
+	</bean>
+
+
+	<bean id="myCricketCoach" class="com.kevinpham.springdemo.CricketCoach">
+
+		<!-- 4. Set up setter injection -->
+		<!-- Spring will call the 'set<name>' method (in this case: setFortuneService() method) and pass in the bean id: myFortuneService as a parameter -->
+		<property name="fortuneService" ref="myFortuneService" />
+
+
+		<!-- 5. Inject literal values -->
+		<!-- name: the field variables in the class, value: the actual value to inject, ex "kevin@pham.com" -->
+		<!-- Spring will call the 'set<name>' method -->
+		<!-- 7. Inject values from properties file-->
+		<!-- value: "${<value in properties file>}"-->
+		<property name="emailAddress" value="${foo.email}" />
+		<property name="team" value="${foo.team}" />
+
+	</bean>
+
+	<!-- Random Fortune Challenge -->
+	<bean id="myRandomFortune" class="com.kevinpham.springdemo.RandomFortuneService"></bean>
+	<bean id="mySwimCoach" class="com.kevinpham.springdemo.SwimCoach">
+		<constructor-arg ref="myRandomFortune" />
+	</bean>
+
+</beans>
